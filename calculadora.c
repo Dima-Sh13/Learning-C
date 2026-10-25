@@ -14,18 +14,13 @@ double multiplicacion(double a, double b){
 }
 
 double division(double a, double b){
-    if (b) = 0 {
-        printf("No se puede dividir por 0")
-        return void
-        
-    }
-
+    
     return a / b;
 }
 
 int main(void){
-    bool on = True;
-    while (on) {
+    
+    while (true) {
         double a;
         printf("Primer numero: ");
         scanf("%lf", &a);
@@ -40,22 +35,33 @@ int main(void){
 
         switch (op){
             case '+':
-                printf(suma(&a, &b));
+                printf("Resultado: %.2f\n", suma(a, b));
                 break;
             case '-':
-                printf(resta(&a, &b));
+                printf("Resultado: %.2f\n", resta(a, b));
                 break;
             case '*':
-                printf(multiplicacion(&a, &b));
+                printf("Resultado: %.2f\n", multiplicacion(a, b));
                 break;    
-            case '-':
-                printf(division(&a, &b));
+            case '/':
+                if (b){
+                    printf("Resultado: %.2f\n", division(a, b));
+                    break;
+                } 
+                printf("no se puede dividir por 0\n");
                 break;
             default:
-                printf("operador no valido");
-                return 1;    
+                printf("operador no valido\n");
+                break;    
 
 
+        }
+        char otra;
+        printf("Otra operacion?: (s/n)");
+        scanf(" %c", &otra);
+
+        if (otra == 'n'){
+            break;
         }
 
     }
